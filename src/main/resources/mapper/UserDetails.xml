@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.totalplay.auth.dao.UserDetailsDao">
+	<select id="getUserByUsername" resultType="UserDetailsModel">
+		SELECT 
+		    TPGUID ID, 
+		    PASSWORD SECRETK
+		FROM TPG_USUARIOS
+		    WHERE USERNAME = #{username}
+	</select>
+	<select id="getUserInfo"  resultType="UserDetailsModel">
+		SELECT 
+		    TPGUID ID, 
+		    NAME SECRETK
+		FROM TPG_USUARIOS
+		    WHERE USERNAME = #{username}
+	</select>
+	<select id="getRoles" resultType="String">
+		SELECT 
+		    TR.ROLE
+		FROM TPG_ROLE TR
+		    INNER JOIN TPG_USERROLE TUR ON TR.TPGRID = TUR.TPGRID
+		WHERE TUR.TPGUID = #{id}
+	</select>
+</mapper>

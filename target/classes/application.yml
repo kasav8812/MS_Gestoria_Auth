@@ -1,0 +1,23 @@
+logging:
+  file:
+    name: '"/log/gestorias-auth.log"'
+  pattern:
+    console: '%d-[%-5p]{"mensaje":"%m" ,"metodo":"%t.%M", "linea":%L, "tiempo": %r}%n'
+    file: '%d-[%-5p]{"mensaje":"%m" ,"metodo":"%C.%M", "linea":%L, "tiempo": %r} %n'
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.totalplay.auth.model
+  type-handlers-package: com.totalplay.auth.dao
+server:
+  port: 10443
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    password: developerdjk
+    url: jdbc:oracle:thin:@localhost:1521/xe
+    username: gestoria
+  main:
+    banner-mode: 'off'
+  mvc:
+    servlet:
+      path: /totalplay/gestorias-auth/v1
