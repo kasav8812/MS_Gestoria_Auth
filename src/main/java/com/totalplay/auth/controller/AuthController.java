@@ -52,5 +52,4 @@ public class AuthController {
 			throw new ExceptionAPI("Credenciales Incorrectas", e, HttpStatus.BAD_REQUEST);
 		}
 	}
-
 }

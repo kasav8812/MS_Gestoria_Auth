@@ -6,7 +6,7 @@
 		    TPGUID ID, 
 		    PASSWORD SECRETK
 		FROM TPG_USUARIOS
-		    WHERE USERNAME = #{username}
+		    WHERE USERNAME = #{username} and ENABLED = 1
 	</select>
 	<select id="getUserInfo"  resultType="UserDetailsModel">
 		SELECT 
